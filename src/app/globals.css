@@ -1,26 +1,50 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@theme {
+  --color-hero-from: #20A7E5;
+  --color-hero-to: #A143FF;
+  --color-accent-green: #AEEF71;
+  --color-purple: #8957FA;
+  --color-purple-dark: #4F237A;
+  --color-blue-glow: #4374FF;
+  --color-badge-bg: #A143FF;
+  --color-text-dark: #262629;
+  --color-card-bg: #F5F5F5;
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+  --radius-card: 19px;
+  --radius-badge: 7px;
+  --radius-direction: 25px;
+  --radius-tag: 8px;
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --spacing-hero-inset: clamp(12px, 2vw, 30px);
+
+  --size-category-icon: clamp(48px, 10vw, 156px);
+  --size-category-h: clamp(48px, 10vw, 156px);
+
+  --text-hero-title: clamp(32px, 4.3vw, 62px);
+  --text-category-label: clamp(15px, 2.2vw, 32px);
+
+  --font-sans: "Inter", sans-serif;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: #ffffff;
+  color: var(--color-text-dark);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.glow-blue {
+  filter: blur(40px);
+}
+
+.glow-purple {
+  filter: blur(50px);
+}
+
+/* Скрываем фото на ультраширoких экранах (>= 2800px) */
+@media (min-width: 2800px) {
+  .hero-photo-col {
+    display: none;
+  }
 }
