@@ -7,6 +7,7 @@ const nextConfig: NextConfig = {
   reactCompiler: true,
   basePath,
   assetPrefix: basePath,
+  images: { unoptimized: true },
 };
 
 export default nextConfig;
