@@ -6,7 +6,6 @@ const nextConfig: NextConfig = {
   output: 'export',
   reactCompiler: true,
   basePath,
-  assetPrefix: basePath,
   images: { unoptimized: true },
 };
 
