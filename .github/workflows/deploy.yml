@@ -31,10 +31,7 @@ jobs:
 
       - run: pnpm install --frozen-lockfile
 
-      - name: Build
-        run: pnpm build
-        env:
-          NEXT_PUBLIC_BASE_PATH: ${{ vars.NEXT_PUBLIC_BASE_PATH }}
+      - run: pnpm build
 
       - uses: actions/upload-pages-artifact@v3
         with:
