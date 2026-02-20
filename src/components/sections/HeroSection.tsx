@@ -3,6 +3,8 @@
 import Image from 'next/image'
 import { useState } from 'react'
 
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? ''
+
 const navLinks = [
 	{ label: 'Поступление 2026', href: '#admission' },
 	{ label: 'О программе', href: '#program' },
@@ -27,9 +29,9 @@ const badges = [
 ]
 
 const categories = [
-	{ icon: '/icons/category-management.png', label: 'Управление' },
-	{ icon: '/icons/category-ai.png', label: 'ИИ-технологии' },
-	{ icon: '/icons/category-finance.png', label: 'Финансы' }
+	{ icon: `${basePath}/icons/category-management.png`, label: 'Управление' },
+	{ icon: `${basePath}/icons/category-ai.png`, label: 'ИИ-технологии' },
+	{ icon: `${basePath}/icons/category-finance.png`, label: 'Финансы' }
 ]
 
 function CheckBadge({ text, className }: { text: string; className: string }) {
@@ -39,7 +41,7 @@ function CheckBadge({ text, className }: { text: string; className: string }) {
 		>
 			<span className="bg-badge-bg flex size-6.5 shrink-0 items-center justify-center rounded-full">
 				<Image
-					src="/icons/check.svg"
+					src={`${basePath}/icons/check.svg`}
 					alt=""
 					aria-hidden="true"
 					width={26}
@@ -125,7 +127,7 @@ export default function HeroSection() {
 		<section className="lg:p-hero-inset flex flex-col bg-white lg:h-svh lg:min-h-[700px]">
 			<div className="rounded-card from-hero-to to-hero-from relative flex flex-1 flex-col overflow-hidden bg-linear-[237deg] max-lg:min-h-svh max-lg:rounded-none">
 				<Image
-					src="/images/binary.png"
+					src={`${basePath}/images/binary.png`}
 					alt=""
 					width={1054}
 					height={662}
@@ -135,7 +137,7 @@ export default function HeroSection() {
 				/>
 
 				<Image
-					src="/images/line-1.png"
+					src={`${basePath}/images/line-1.png`}
 					alt=""
 					width={948}
 					height={606}
@@ -146,7 +148,7 @@ export default function HeroSection() {
 				<nav className="relative z-20 flex flex-col">
 					<div className="flex items-center justify-between px-4 pt-4 md:px-[36px] md:pt-6">
 						<Image
-							src="/icons/logo.svg"
+							src={`${basePath}/icons/logo.svg`}
 							alt="Университет Косыгина"
 							width={125}
 							height={56}
@@ -233,7 +235,7 @@ export default function HeroSection() {
 
 						<div className="absolute right-[-7%] bottom-0 z-10 h-[90%]">
 							<Image
-								src="/images/hero-team.png"
+								src={`${basePath}/images/hero-team.png`}
 								alt="Команда программы"
 								width={795}
 								height={530}
@@ -252,7 +254,7 @@ export default function HeroSection() {
 				</div>
 
 				<Image
-					src="/images/line-2.png"
+					src={`${basePath}/images/line-2.png`}
 					alt=""
 					width={1572}
 					height={237}
