@@ -6,8 +6,12 @@ import {
 	SheetTitle,
 	SheetTrigger
 } from '@/components/ui/sheet'
-import { NavLink } from '@/types/nav'
 import { MenuIcon } from 'lucide-react'
+
+export interface NavLink {
+	label: string
+	href: string
+}
 
 export function MobileNav({ links }: { links: NavLink[] }) {
 	return (
