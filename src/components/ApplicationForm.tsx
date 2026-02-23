@@ -1,9 +1,9 @@
 'use client'
 
-import { sendApplication } from '@/lib/telegram'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
+import { sendApplication } from '@/lib/telegram'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { Controller, useForm, useWatch } from 'react-hook-form'
 import { IMaskInput } from 'react-imask'
@@ -135,7 +135,7 @@ export function ApplicationForm({ onSuccess, onError }: ApplicationFormProps) {
 				type="submit"
 				size="lg"
 				disabled={isSubmitting}
-				className="mt-4 w-full rounded-xl bg-blue-600 hover:bg-blue-700"
+				className="btn-glass bg-purple/90 hover:bg-purple mt-4 w-full rounded-xl font-medium tracking-tight text-white backdrop-blur-lg transition-colors"
 			>
 				{isSubmitting ? 'Отправляем...' : 'Отправить'}
 			</Button>
