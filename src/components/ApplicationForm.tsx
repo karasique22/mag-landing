@@ -1,5 +1,6 @@
 'use client'
 
+import { sendApplication } from '@/lib/telegram'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
@@ -7,8 +8,6 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import { Controller, useForm, useWatch } from 'react-hook-form'
 import { IMaskInput } from 'react-imask'
 import { z } from 'zod'
-
-const API_URL = process.env.NEXT_PUBLIC_API_URL ?? ''
 
 const MAX_MESSAGE_LENGTH = 500
 
@@ -51,18 +50,7 @@ export function ApplicationForm({ onSuccess, onError }: ApplicationFormProps) {
 
 	const onSubmit = async (data: FormData) => {
 		try {
-			if (!API_URL) {
-				throw new Error('Сервер заявок не настроен')
-			}
-
-			const res = await fetch(API_URL, {
-				method: 'POST',
-				headers: { 'Content-Type': 'application/json' },
-				body: JSON.stringify(data)
-			})
-
-			if (!res.ok) throw new Error('Ошибка отправки')
-
+			await sendApplication(data)
 			onSuccess()
 		} catch (err) {
 			onError?.(err instanceof Error ? err : new Error('Ошибка отправки'))
