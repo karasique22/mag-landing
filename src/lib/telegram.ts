@@ -14,12 +14,14 @@ export async function sendApplication(data: ApplicationData) {
 		throw new Error('Telegram не настроен')
 	}
 
+	const esc = (s: string) => s.replace(/[_*[\]()~`>#+=|{}.!\\-]/g, '\\$&')
+
 	const text = [
-		'📬 Новая заявка',
-		`👤 ФИО: ${data.name}`,
-		`📞 Телефон: ${data.phone}`,
-		`✉️ Email: ${data.email}`,
-		data.message ? `💬 Сообщение: ${data.message}` : null
+		'*📬 Новая заявка\\!*\n',
+		`*👤 ФИО:* ${esc(data.name)}`,
+		`*📞 Телефон:* ${esc(data.phone)}`,
+		`*✉️ Email:* ${esc(data.email)}`,
+		data.message ? `*💬 Сообщение:* ${esc(data.message)}` : null
 	]
 		.filter(Boolean)
 		.join('\n')
@@ -34,7 +36,8 @@ export async function sendApplication(data: ApplicationData) {
 				...(TELEGRAM_TOPIC_ID && {
 					message_thread_id: Number(TELEGRAM_TOPIC_ID)
 				}),
-				text
+				text,
+				parse_mode: 'MarkdownV2'
 			})
 		}
 	)
