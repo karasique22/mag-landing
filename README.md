@@ -1,36 +1,99 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Лендинг магистерской программы
 
-## Getting Started
+Сайт магистерской программы «Устойчивые продукты онлайн-образования» Университета Косыгина.
 
-First, run the development server:
+Домен: **онлайнпродукты.рф**
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## Технологии
+
+- Next.js 16 (статический экспорт)
+- React 19
+- Tailwind CSS 4
+- shadcn/ui
+- TypeScript
+
+## Структура проекта
+
+```
+src/
+├── app/
+│   ├── layout.tsx         — корневой layout, SEO-метаданные
+│   ├── page.tsx           — главная страница
+│   └── globals.css        — стили, CSS-переменные
+├── components/
+│   ├── sections/
+│   │   └── HeroSection.tsx        — герой-блок с навигацией и формой
+│   ├── ApplicationForm.tsx        — форма заявки (валидация, отправка)
+│   ├── DirectionCard.tsx          — карточка направления
+│   ├── MobileNav.tsx              — мобильное меню
+│   └── ui/                        — UI-компоненты (shadcn/ui)
+├── lib/
+│   └── utils.ts           — утилита cn() для Tailwind-классов
+└── types/
+    └── nav.ts             — общие типы
+public/
+├── icons/                 — логотипы, иконки
+├── images/                — фотографии, декоративные изображения
+├── robots.txt
+└── sitemap.xml
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Как собрать
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Требования: **Node.js 18+** и **pnpm**.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+# 1. Установить зависимости
+pnpm install
 
-## Learn More
+# 2. Собрать статику
+pnpm build
+```
 
-To learn more about Next.js, take a look at the following resources:
+После сборки появится папка **`out/`** — это и есть готовый сайт.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Как залить на хостинг
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+1. Собрать проект командами выше
+2. Содержимое папки **`out/`** загрузить в корневую директорию сайта на хостинге (обычно `public_html/` или `www/`)
+3. Все файлы из `out/` должны лежать в корне, а не в подпапке
 
-## Deploy on Vercel
+Пример структуры на хостинге:
+```
+public_html/
+├── index.html
+├── 404.html
+├── _next/
+├── icons/
+├── images/
+├── robots.txt
+└── sitemap.xml
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Форма заявки
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Форма заявки подготовлена, но для работы требуется бэкенд-сервер (прокси для Telegram).
+
+Чтобы подключить:
+1. Развернуть прокси-сервер (см. раздел ниже)
+2. Перед сборкой создать файл `.env.local` в корне проекта:
+
+```
+NEXT_PUBLIC_API_URL=https://ваш-сервер.example.com/api/application
+```
+
+3. Пересобрать проект (`pnpm build`)
+
+Без `NEXT_PUBLIC_API_URL` форма покажет ошибку при отправке.
+
+## Разработка
+
+```bash
+# Запуск dev-сервера
+pnpm dev
+
+# Линтер
+pnpm lint
+```
+
+Dev-сервер доступен на http://localhost:3000
