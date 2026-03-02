@@ -30,7 +30,7 @@ export function HeroContent({ onCtaClick }: HeroContentProps) {
 
 			<HeroNav />
 
-			<div className="relative flex flex-1 flex-col gap-8 px-4 pt-8 pb-0 md:px-9 md:pt-10 lg:flex-row lg:pt-10">
+			<div className="relative flex flex-1 flex-col gap-8 px-4 pb-0 md:px-9 md:pt-10 lg:flex-row lg:pt-10">
 				<div className="relative z-20 flex flex-1 flex-col justify-center pb-8 md:justify-start md:pt-12 md:pb-10 lg:w-max lg:justify-normal lg:pt-0 lg:pb-10 2xl:pb-16">
 					<div className="flex flex-col gap-3 md:gap-6 lg:gap-0">
 						<div>

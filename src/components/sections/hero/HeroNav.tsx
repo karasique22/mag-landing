@@ -11,15 +11,17 @@ const navLinks: NavLink[] = [
 
 export function HeroNav() {
 	return (
-		<nav className="relative z-20 flex flex-col">
-			<div className="flex items-center justify-between px-4 pt-4 md:px-9 md:pt-6">
-				<div className="flex gap-7">
+		<nav className="relative z-20 flex flex-col gap-3 px-4 pt-4 md:gap-0 md:px-9 md:pt-6">
+			<div className="flex items-center justify-between">
+				<div className="flex items-center gap-3 md:gap-7">
 					<Image
 						src="/icons/logo-1.svg"
 						alt="Министерство науки и высшего образования РФ"
 						width={171}
 						height={48}
 						priority
+						className="max-w-32.5 min-[375px]:max-w-none"
+						style={{ height: 'auto' }}
 					/>
 					<Image
 						src="/icons/logo-2.svg"
@@ -27,10 +29,20 @@ export function HeroNav() {
 						width={117}
 						height={52}
 						priority
+						className="max-w-22.5 min-[375px]:max-w-none"
+						style={{ height: 'auto' }}
+					/>
+					<Image
+						src="/icons/logo-3-full.svg"
+						alt="Институт экономики и менеджмента"
+						width={210}
+						height={30}
+						priority
+						className="hidden md:block"
 					/>
 				</div>
 
-				<div className="hidden items-center gap-2 lg:flex">
+				<div className="hidden items-center gap-2 xl:flex">
 					{navLinks.map(({ label, href }) => (
 						<a
 							key={href}
@@ -44,6 +56,15 @@ export function HeroNav() {
 
 				<MobileNav links={navLinks} />
 			</div>
+
+			<Image
+				src="/icons/logo-3-full.svg"
+				alt="Институт экономики и менеджмента"
+				width={210}
+				height={40}
+				priority
+				className="md:hidden"
+			/>
 		</nav>
 	)
 }

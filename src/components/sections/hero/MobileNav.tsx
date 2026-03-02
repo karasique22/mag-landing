@@ -17,7 +17,7 @@ export function MobileNav({ links }: { links: NavLink[] }) {
 	return (
 		<Sheet>
 			<SheetTrigger
-				className="flex items-center justify-center p-2 lg:hidden"
+				className="flex items-center justify-center p-2 xl:hidden"
 				aria-label="Открыть меню"
 			>
 				<MenuIcon className="size-6 text-white" />
