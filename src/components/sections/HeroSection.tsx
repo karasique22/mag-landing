@@ -1,7 +1,6 @@
 'use client'
 
 import { ApplicationForm } from '@/components/ApplicationForm'
-import { CategoryCards } from '@/components/sections/hero/CategoryCards'
 import { HeroContent } from '@/components/sections/hero/HeroContent'
 import {
 	Dialog,
@@ -23,7 +22,6 @@ export default function HeroSection() {
 	return (
 		<section className="lg:p-hero-inset flex h-svh min-h-0 flex-col bg-white">
 			<HeroContent onCtaClick={() => setIsModalOpen(true)} />
-			<CategoryCards />
 
 			<Dialog
 				open={isModalOpen}

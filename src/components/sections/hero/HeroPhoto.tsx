@@ -7,14 +7,17 @@ interface Badge {
 
 const badges: Badge[] = [
 	{
-		text: 'развитие',
-		className: 'top-[40%] left-[12%] rotate-[7.59deg]'
+		text: '2 квалификации',
+		className: 'top-[40%] left-[35%] rotate-[7.59deg]'
 	},
-	{ text: 'быстрый старт', className: 'bottom-[28%] left-[30%]' },
-	{ text: 'лёгкость', className: 'top-[43%] right-[5%] -rotate-[7.1deg]' },
+	{ text: 'х2 шансы поступить', className: 'bottom-[28%] left-[30%]' },
+	{
+		text: 'профессиональный трекинг',
+		className: 'top-[43%] right-[5%] -rotate-[7.1deg]'
+	},
 	{
 		text: 'бюджетные места',
-		className: 'bottom-[8%] left-0 rotate-[2deg]'
+		className: 'bottom-[8%] left-[18%] rotate-[2deg]'
 	},
 	{
 		text: 'командная работа',
@@ -25,7 +28,7 @@ const badges: Badge[] = [
 function CheckBadge({ text, className }: { text: string; className: string }) {
 	return (
 		<div
-			className={`rounded-tag absolute z-20 hidden items-center gap-1.5 bg-white px-2.5 py-1 shadow-md lg:flex ${className}`}
+			className={`rounded-tag absolute z-20 hidden items-center gap-1.5 bg-white px-2.5 py-1 shadow-md 2xl:flex ${className}`}
 		>
 			<span className="bg-badge-bg flex size-6.5 shrink-0 items-center justify-center rounded-full">
 				<Image
@@ -45,7 +48,7 @@ function CheckBadge({ text, className }: { text: string; className: string }) {
 
 export function HeroPhoto() {
 	return (
-		<div className="hero-photo-col pointer-events-none absolute inset-0 hidden md:block lg:relative lg:flex-1">
+		<div className="hero-photo-col pointer-events-none absolute inset-0 hidden xl:relative xl:flex xl:flex-1">
 			<div
 				className="glow-blue bg-blue-glow absolute bottom-0 left-[5%] h-[45%] w-[85%] opacity-60"
 				aria-hidden="true"
